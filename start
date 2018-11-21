@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Super User Log In
+ 
+sudo su
+
+# google chrome
+
+echo "chrome installing"
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt-get update 
+sudo apt-get install google-chrome-stable
+
+#echo "Done"
+
+# VS Code
+
+echo "VS Code installing"
+
+sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code
+
+echo "Done"
+
+# Plank 
+
+echo "Plank installing"
+sudo add-apt-repository ppa:ricotz/docky
+sudo apt-get update && sudo apt-get install plank
+
+echo "Done"
+
+# NODE js and NPM 
+
+echo "NODE installing"
+
+sudo apt-get update
+sudo apt-get install nodejs
+
+echo "NODE installing"
+
+sudo apt-get install npm
+sudo npm install -g npm@latest
+
+echo "Done"
+
+
+# Yarn install 
+
+echo "Yarn installing"
+
+sudo apt install curl 
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
+
+echo "Done"
+
+# Install version
+
+echo "Installed version"
+echo "NODE JS" && nodejs -v
+echo "NPM" && npm -v
+echo "Yarn" && yarn -v
+
+echo "All Done"
+
